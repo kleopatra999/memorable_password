@@ -151,7 +151,7 @@ describe MemorablePassword do
     it "should raise an exception if both the length and min_length options are supplied" do
       expect {
         memorable_password.generate(:length => 5, :min_length => 2)
-      }.should raise_exception('You cannot specify :length and :min_length at the same time')
+      }.to raise_exception('You cannot specify :length and :min_length at the same time')
     end
   end
 
