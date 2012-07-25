@@ -121,7 +121,7 @@ class MemorablePassword
       result = compact_password_string.slice(0, opts[:length])
 
       # If there is no digit then it is probably a short password that by chance is just a dictionary word. Override that because that is bad.
-      if result =~ /^[a-z]+$/
+      if result =~ /\A[a-z]+\Z/
         password = [(opts[:mixed_case] ? word(opts[:length] - 1).capitalize : word(opts[:length] - 1)), (opts[:special_characters] ? character : digit)]
         result = password.compact.join
       end
